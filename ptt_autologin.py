@@ -21,13 +21,14 @@ password = j.get('password').encode('big5')
 tn = telnetlib.Telnet('ptt.cc')
 time.sleep(1)
 c = tn.read_very_eager().decode('big5','ignore')
-print c
+print c.encode('utf-8')
 print type(c)
+
 def send_and_print(n=''):
     tn.write(n+'\r\n')
     time.sleep(1)
     c = tn.read_very_eager().decode('big5','ignore')
-    print c
+    print c.encode('utf-8')
     return c
 
 if u'請輸入代號，或以 guest 參觀，或以 new 註冊:' in c :
